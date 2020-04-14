@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+{% extends 'contractor/base.html' %}
+
+{% load bootstrap4 %}
+
+
+{% load static %}
+
+
+{% block title %}Thekedar{% endblock %}
+{% block content %}
+
+ {% if user.is_authenticated%}
+    <h1>already login</h1>
+{% else %}
+
+    {% if signup %}
+    <h1>Thank you for Signup!!</h1>
+    {% else %}
+
+<!-- SignUp Section -->
+  <section class="page-section" id="signup">
+    <div class="container">
+      <!-- SignUp Section Heading -->
+        <br>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SignUp</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+      <!-- SignUp Section Form -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+          <form name="" id="contactForm" novalidate="novalidate"   enctype="multipart/form-data"  method="post">
+                    {% csrf_token %}
+           {% bootstrap_form user_form %}
+                      {% bootstrap_form profile_form %}
+
+              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">SignUp</button>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+   {% endif %}
+{% endif %}
+ {% endblock %}
+
+
+

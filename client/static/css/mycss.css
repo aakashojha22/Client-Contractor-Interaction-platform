@@ -1,0 +1,25 @@
+
+.myimg{
+  width:250px;
+  height:250px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.myimg-dp{
+  width:100px;
+  height:100px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+
+.portpolio_size_fix{
+  width:350px;
+  height:200px;
+  object-fit:cover;
+    border-radius:6%;
+}
+
+
+

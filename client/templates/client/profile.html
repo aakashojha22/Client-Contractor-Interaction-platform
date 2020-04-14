@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% extends 'client/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+   <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+
+      <!-- Masthead Heading -->
+
+      <h1 class="masthead-heading text-uppercase mb-0"><i>Profile Details </i></h1>
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0"><service class=""></service></p>
+
+    </div>
+  </header>
+
+<br>
+<br>
+
+
+
+  <section class="page-section portfolio " >
+
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>Personal Details </i></h1>
+       <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+<div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+    <tr>
+      <td scope="row">Name</td>
+      <td><b>{{ user.clientlogin.name }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Email Address</td>
+      <td><b>{{ user.email }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Username</td>
+      <td><b>{{ user.username }}</b></td>
+    </tr>
+
+
+        <tr>
+      <td scope="row">Mobile</td>
+      <td><b>{{ user.clientlogin.mobile_no }}</b></td>
+    </tr>
+
+         </tbody>
+</table>
+</div>
+    </div>
+  </section>
+
+
+
+
+  <section class="page-section portfolio" >
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>Project Details </i></h1>
+   <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+  <div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+
+          <tr>
+      <td scope="row">Budget</td>
+      <td><b>{{ user.clientlogin.budget }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Plot Size (in square feet)</td>
+      <td><b>{{ user.clientlogin.plot_size }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Plot Address</td>
+      <td><b>{{ user.clientlogin.address }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">No. of Bedrooms</td>
+      <td><b>{{ user.clientlogin.bedrooms }}</b></td>
+    </tr>
+
+
+         <tr>
+      <td scope="row">No. of Bathrooms</td>
+      <td><b>{{ user.clientlogin.bathrooms }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">No.of Floors</td>
+      <td><b>{{ user.clientlogin.floors }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Description</td>
+      <td><b>{{ user.clientlogin.description }}</b></td>
+    </tr>
+
+      </tbody>
+</table>
+  </div>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}

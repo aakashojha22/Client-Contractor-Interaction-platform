@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% extends 'contractor/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+   <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+
+
+      {% if contractorlogin.profile_pic %}
+        <img class="myimg" src="{{ contractorlogin.profile_pic.url }}" class="card-img-top" alt="..." height="100px" width="100px">
+<br>
+                    {% else %}
+ <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+                  {% endif %}
+      <!-- Masthead Heading -->
+
+      <h1 class="masthead-heading text-uppercase mb-0"><i>Customer Profile  </i></h1>
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0"><service class=""></service></p>
+
+    </div>
+  </header>
+
+
+
+
+   <section class="page-section portfolio " >
+
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>Personal Details </i></h1>
+       <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+<div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+    <tr>
+      <td scope="row">Name</td>
+      <td><b>{{ clientlogin.name }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Email Address</td>
+      <td><b>{{ clientlogin.user.email }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Username</td>
+      <td><b>{{ clientlogin.user.username }}</b></td>
+    </tr>
+
+
+        <tr>
+      <td scope="row">Mobile</td>
+      <td><b>{{ clientlogin.mobile_no }}</b></td>
+    </tr>
+
+         </tbody>
+</table>
+</div>
+    </div>
+  </section>
+
+
+
+
+  <section class="page-section portfolio" >
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>Project Details </i></h1>
+   <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+  <div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+
+          <tr>
+      <td scope="row">Budget</td>
+      <td><b>{{ clientlogin.budget }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Plot Size (in square feet)</td>
+      <td><b>{{ clientlogin.plot_size }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Plot Address</td>
+      <td><b>{{ clientlogin.address }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">No. of Bedrooms</td>
+      <td><b>{{ clientlogin.bedrooms }}</b></td>
+    </tr>
+
+
+         <tr>
+      <td scope="row">No. of Bathrooms</td>
+      <td><b>{{ clientlogin.bathrooms }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">No.of Floors</td>
+      <td><b>{{ clientlogin.floors }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Description</td>
+      <td><b>{{ clientlogin.description }}</b></td>
+    </tr>
+
+      </tbody>
+</table>
+ <br>
+  </div>
+        <a href="{% url 'contractor:place_bid' mob_no=clientlogin.mobile_no contractor_pk=request.user.pk %}" class="btn btn-primary btn-lg btn-block"><h2><i>Place  Bid</i></h2></a>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'client/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+
+   <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+
+      <!-- Masthead Heading -->
+
+      <h2 class="masthead-heading text-uppercase mb-0"><i>Find A Perfect Contractor For Your Home....</i></h2>
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0"><service class=""></service></p>
+
+    </div>
+  </header>
+
+
+ <section class="page-section portfolio " >
+
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>List of Contractor Available</i></h1>
+       <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+ </div>
+
+<div >
+<div class="container">
+
+      {% for request in bid_list %}
+    {% ifequal  user.clientlogin.mobile_no|cut:" " request.to_client_mob|cut:" " %}
+<br>
+
+    <div class="card">
+
+    <div class="card-body">
+    <!--  {% if request.profile_pic %}
+          <img style="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" src="{{ request.profile_pic.url }}" alt="Card image cap">
+          {% else %}
+          <img class="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
+            {% endif %} -->
+    <h5 class="card-title"><a href="">{{request.from_contractor}}</a></h5>
+
+    <p class="card-text">Amount:- Rs {{request.amount}}</p>
+      <p class="text-muted">{{request.material}}</p>
+        <p class="text-muted">{{request.contractor_pk}}</p>
+      <br>
+    <a href="" class="btn btn-primary">See Portfolio</a>
+  </div>
+</div>
+     {% endifequal %}
+    {% endfor %}
+</div>
+</div>
+
+ </section>
+
+
+    <br>
+{% endblock %}

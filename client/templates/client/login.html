@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'client/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Login - Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<!-- SignUp Section -->
+  <section class="page-section" id="signup">
+    <div class="container">
+      <!-- SignUp Section Heading -->
+        <br>
+
+         {% if user.is_authenticated%}
+    <h1>Already login</h1>
+{% else %}
+
+  {% if form.error %}
+    <h2>Your Username ans Password is incorrect...</h2>
+    {% endif %}
+
+
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">LogIn</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+      <!-- SignUp Section Form -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+          <form name="" id="contactForm"  action="{% url 'client:user_login' %}"   method="POST">
+                {% csrf_token %}
+            <div class="control-group">
+                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                	<label>Username: </label>
+			<input type="text" name="username" class="form-control" id="name" placeholder="Enter your Username">
+  </div>
+            </div>
+                   <div class="control-group">
+                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              			<label>Password: </label>
+			<input type="password" name="password" class="form-control" id="name" placeholder="Enter your Password" >
+  </div>
+            </div>
+              <br>
+			<input type="submit" class="btn btn-primary btn-xl" name="" value="Login">
+<!--
+ <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Name</label>
+                <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+ -->
+
+
+    </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    {% endif %}
+
+ {% endblock %}
+
+
+

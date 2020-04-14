@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+{% extends 'client/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+   <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+
+
+      {% if contractorlogin.profile_pic %}
+        <img class="myimg" src="{{ contractorlogin.profile_pic.url }}" class="card-img-top" alt="..." height="100px" width="100px">
+<br>
+                    {% else %}
+ <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+                  {% endif %}
+      <!-- Masthead Heading -->
+
+      <h1 class="masthead-heading text-uppercase mb-0"><i>Contractor Portfolio  </i></h1>
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0"><service class=""></service></p>
+
+    </div>
+  </header>
+
+<br>
+<br>
+
+  <section class="page-section portfolio " >
+
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>Personal Details </i></h1>
+       <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+<div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+    <tr>
+      <td scope="row">Name</td>
+      <td><b>{{ contractorlogin.name }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Email Address</td>
+      <td><b>{{ contractorlogin.user.email }}</b></td>
+    </tr>
+
+       <tr>
+      <td scope="row">Username</td>
+      <td><b>{{ contractorlogin.user.username }}</b></td>
+    </tr>
+
+
+        <tr>
+      <td scope="row">Mobile</td>
+      <td><b>{{ contractorlogin.mobile_no }}</b></td>
+    </tr>
+
+
+          <tr>
+      <td scope="row">Address</td>
+      <td><b>{{ contractorlogin.address }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Occuption</td>
+      <td><b>{{ contractorlogin.occupation }}</b></td>
+    </tr>
+
+        <tr>
+      <td scope="row">Experience </td>
+      <td><b>{{ contractorlogin.experience }}</b></td>
+    </tr>
+
+
+
+         <tr>
+      <td scope="row">About Self  </td>
+      <td><b>{{ contractorlogin.about_self }}</b></td>
+    </tr>
+
+
+      </tbody>
+</table>
+  </div>
+    </div>
+  </section>
+
+
+
+<!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Portfolio Grid Items -->
+      <div class="row">
+
+        <!-- Portfolio Item 1 -->
+        <div class="col-md-6 col-lg-4">
+
+               {% if contractorlogin.sample_work_1 %}
+            <img class="portpolio_size_fix img-fluid "  src="{{ contractorlogin.sample_work_1.url  }}" alt="">
+          {% endif %}
+
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-6 col-lg-4">
+
+             {% if contractorlogin.sample_work_2 %}
+            <img class="portpolio_size_fix img-fluid" src="{{ contractorlogin.sample_work_2.url }}" alt="">
+         {% endif %}
+.
+        </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-6 col-lg-4">
+
+             {% if contractorlogin.sample_work_3 %}
+            <img class="portpolio_size_fix img-fluid" src="{{ contractorlogin.sample_work_3.url }}" alt="">
+          {% endif %}
+
+        </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="col-md-6 col-lg-4">
+
+             {% if contractorlogin.sample_work_4 %}
+            <img class="portpolio_size_fix img-fluid" src="{{ contractorlogin.sample_work_4.url }}" alt="">
+          {% endif %}
+
+        </div>
+
+        <!-- Portfolio Item 5 -->
+        <div class="col-md-6 col-lg-4">
+
+             {% if contractorlogin.sample_work_5 %}
+            <img class="portpolio_size_fix img-fluid" src="{{ contractorlogin.sample_work_5.url }}" alt="">
+          {% endif %}
+
+        </div>
+
+        <!-- Portfolio Item 6 -->
+        <div class="col-md-6 col-lg-4">
+
+              {% if contractorlogin.sample_work_6 %}
+            <img class="portpolio_size_fix img-fluid" src="{{ contractorlogin.sample_work_6.url }}" alt="">
+                   {% endif %}
+        </div>
+      </div>
+      <!-- .row -->
+    </div>
+  </section>
+
+</div>
+
+
+{% endblock %}

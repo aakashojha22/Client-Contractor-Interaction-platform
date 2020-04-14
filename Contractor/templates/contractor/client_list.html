@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'contractor/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Thekedar{% endblock %}
+
+{% block content %}
+
+
+
+
+   <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+
+      <!-- Masthead Heading -->
+
+      <h2 class="masthead-heading text-uppercase mb-0"><i>Find A  Client For Your Next Project....</i></h2>
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0"><service class=""></service></p>
+
+    </div>
+  </header>
+
+
+ <section class="page-section portfolio " >
+
+    <div class="container d-flex align-items-center flex-column">
+ <h1 class="masthead-heading text-uppercase mb-0"><i>List of Client Available</i></h1>
+       <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+ </div>
+
+<div >
+<div class="container">
+
+      {% for request in clientlogin_list %}
+<br>
+
+    <div class="card">
+
+    <div class="card-body">
+
+
+          <img style="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" class="card-img-top" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
+
+    <h5 class="card-title"><a href="{% url 'client:contractor_profile_view' pk=request.pk %}">{{request.name}}</a></h5>
+
+    <p class="card-text">{{request.user.email}}</p>
+      <p class="text-muted">{{request.address}}</p>
+        <small class="text-muted">Project Request On {{request.project_created_at}}</small>
+      <br>
+        <a href="{% url 'contractor:client_profile_view' pk=request.pk %}" class="btn btn-primary">See Profile</a>
+    </div>
+</div>
+    {% endfor %}
+</div>
+</div>
+
+ </section>
+
+
+    <br>
+{% endblock %}

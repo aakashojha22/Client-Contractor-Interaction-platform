@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'contractor/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Contractor - Thekedar.com{% endblock %}
+
+{% block content %}
+
+
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+   {% if user.is_authenticated%}
+        <img class="myimg" src="{{ user.contractorlogin.profile_pic.url }}" class="card-img-top" alt="..." height="100px" width="100px">
+<br>
+                    {% else %}
+ <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
+                  {% endif %}
+
+      <!-- Masthead Avatar Image -->
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0"><i>Thekedar.com - Contractor</i></h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0">Contractor - Interior Designer - Map Designer </p>
+
+    </div>
+  </header>
+
+
+{% endblock %}
