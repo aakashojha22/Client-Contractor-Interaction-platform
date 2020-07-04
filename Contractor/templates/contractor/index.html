@@ -11,13 +11,14 @@
   <!-- Masthead -->
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-   {% if user.is_authenticated%}
+   {% if user.is_authenticated and user.contractorlogin.profile_pic %}
+
         <img class="myimg" src="{{ user.contractorlogin.profile_pic.url }}" class="card-img-top" alt="..." height="100px" width="100px">
-<br>
+
+        <br>
                     {% else %}
  <img class="masthead-avatar mb-5" src="{% static 'img/avataaars.svg' %} " alt="">
                   {% endif %}
-
       <!-- Masthead Avatar Image -->
 
       <!-- Masthead Heading -->

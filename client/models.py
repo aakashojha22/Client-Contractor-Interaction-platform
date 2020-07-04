@@ -30,7 +30,8 @@ class ClientLogin(models.Model):
 
 class Bid(models.Model):
     from_contractor = models.ForeignKey(User, related_name='from_contractor', on_delete=models.CASCADE)
-    to_client_mob = models.BigIntegerField(blank=True,null=True)
+    from_contractor_pk = models.PositiveIntegerField(null=True)
+    to_client = models.ForeignKey(User, related_name='to_client', on_delete=models.CASCADE,null=True)
     bid_created_at = models.DateTimeField(auto_now=True)
     amount = models.PositiveIntegerField(blank=True,null=True)
     material = models.CharField(max_length=50, choices=sorted(material_CHOICES), default='without_material')

@@ -18,7 +18,7 @@ urlpatterns = [
             path('list',views.List.as_view(),name='list'),
             path('bid_list',views.BidList.as_view(),name='bid_list'),
             path('contractor_profile/<int:pk>/', views.ContractorProfileView.as_view(), name='contractor_profile_view'),
-
+            path('User_contractor_profile/<int:pk>/', views.UserContractorProfileView.as_view(), name='user_contractor_profile_view'),
 ]
 
 

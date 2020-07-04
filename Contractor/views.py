@@ -12,6 +12,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import  ContractorLogin
 from client.models import ClientLogin
+from django.contrib.auth.models import User
 
 
 
@@ -41,7 +42,7 @@ def signup(request):
             profile.user=user
             if 'profile_pic' in request.FILES:
                 profile.profile_pic=request.FILES['profile_pic']
-            if 'sample_work_1' in request.FILES:
+			if 'sample_work_1' in request.FILES:							
                 profile.sample_work_1=request.FILES['sample_work_1']
             if 'sample_work_2' in request.FILES:
                 profile.sample_work_2=request.FILES['sample_work_2']
@@ -94,15 +95,16 @@ class ClientProfileView(DetailView,LoginRequiredMixin):
     model = ClientLogin
     template_name = 'contractor/client_profile.html'
 
-def create_bid(request,mob_no,contractor_pk):
+def create_bid(request,client_pk,contractor_pk):
     form = CreateBidForm()
     if request.method == "POST":
         form = CreateBidForm(request.POST)
         if form.is_valid():
             request_detail = form.save(commit=False)
             request_detail.from_contractor = request.user
-            request_detail.to_client_mob = mob_no
-            request_detail.contractor_pk = contractor_pk
+            client_id = User.objects.get(pk=client_pk)
+            request_detail.to_client = client_id
+            request_detail.from_contractor_pk = contractor_pk
             request_detail.save()
             return redirect('contractor:client_list')
     return render(request, 'contractor/place_bid_form.html', {'form': form})

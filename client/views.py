@@ -13,25 +13,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import  ClientLogin,Bid
 from django.contrib.auth import authenticate, login
 from Contractor.models import ContractorLogin
-
-
-
-
+from django.contrib.auth.models import User
 
 class IndexView(TemplateView):
     template_name = 'client/index.html'
 
-
 class ClientIndexView(TemplateView):
     template_name = 'client/client_index.html'
 
-
-
 class Profile(TemplateView):
     template_name = 'client/profile.html'
-
-
-
 
 def signup(request):
 
@@ -105,6 +96,10 @@ class List(ListView,LoginRequiredMixin):
 class ContractorProfileView(DetailView,LoginRequiredMixin):
     model = ContractorLogin
     template_name = 'client/contractor_profile.html'
+
+class UserContractorProfileView(DetailView,LoginRequiredMixin):
+    model = User
+    template_name = 'client/user_contractor_profile.html'
 
 class BidList(ListView,LoginRequiredMixin,):
     model = Bid

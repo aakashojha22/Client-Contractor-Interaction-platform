@@ -14,7 +14,7 @@ urlpatterns = [
             path('profile',views.ContractorProfile.as_view(),name='contractor_profile'),
             path('client_list',views.ClientListView.as_view(),name='client_list'),
             path('client_profile/<int:pk>/', views.ClientProfileView.as_view(), name='client_profile_view'),
-            path('place_bid/<mob_no>/<int:contractor_pk>', views.create_bid, name='place_bid'),
+            path('place_bid/<int:client_pk>/<int:contractor_pk>', views.create_bid, name='place_bid'),
 
 ]
 

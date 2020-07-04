@@ -53,7 +53,7 @@
 <div class="container">
 
       {% for request in bid_list %}
-    {% ifequal  user.clientlogin.mobile_no|cut:" " request.to_client_mob|cut:" " %}
+    {% ifequal  user.clientlogin|cut:" " request.to_client|cut:" " %}
 <br>
 
     <div class="card">
@@ -64,11 +64,12 @@
           {% else %}
           <img class="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
             {% endif %} -->
-    <h5 class="card-title"><a href="">{{request.from_contractor}}</a></h5>
+    <h5 class="card-title"><a href="{% url 'client:user_contractor_profile_view' pk=request.from_contractor_pk %}">{{request.from_contractor}}</a></h5>
 
     <p class="card-text">Amount:- Rs {{request.amount}}</p>
       <p class="text-muted">{{request.material}}</p>
-        <p class="text-muted">{{request.contractor_pk}}</p>
+        <p class="text-muted">{{request.from_contractor_pk}}</p>
+
       <br>
     <a href="" class="btn btn-primary">See Portfolio</a>
   </div>

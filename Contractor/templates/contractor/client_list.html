@@ -62,7 +62,7 @@
 
           <img style="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" class="card-img-top" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
 
-    <h5 class="card-title"><a href="{% url 'client:contractor_profile_view' pk=request.pk %}">{{request.name}}</a></h5>
+    <h5 class="card-title"><a href="{% url 'contractor:client_profile_view' pk=request.pk %}">{{request.name}}</a></h5>
 
     <p class="card-text">{{request.user.email}}</p>
       <p class="text-muted">{{request.address}}</p>

@@ -59,10 +59,12 @@
 
     <div class="card-body">
       {% if user.is_authenticated%}
+         {% if request.profile_pic %}
           <img style="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" src="{{ request.profile_pic.url }}" alt="Card image cap">
           {% else %}
-          <img class="card-img-top" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
+          <img style="float:left; margin-right:10px; width:120px; height:120px; border:none; border-radius:50%;" src="{% static 'img/avataaars.svg' %}" alt="Card image cap">
             {% endif %}
+         {% endif %}
     <h5 class="card-title"><a href="{% url 'client:contractor_profile_view' pk=request.pk %}">{{request.name}}</a></h5>
 
     <p class="card-text">{{request.user.email}}</p>
