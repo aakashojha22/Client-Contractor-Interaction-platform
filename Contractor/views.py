@@ -42,7 +42,7 @@ def signup(request):
             profile.user=user
             if 'profile_pic' in request.FILES:
                 profile.profile_pic=request.FILES['profile_pic']
-			if 'sample_work_1' in request.FILES:							
+            if 'sample_work_1' in request.FILES:
                 profile.sample_work_1=request.FILES['sample_work_1']
             if 'sample_work_2' in request.FILES:
                 profile.sample_work_2=request.FILES['sample_work_2']
