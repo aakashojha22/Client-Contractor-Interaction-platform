@@ -68,10 +68,9 @@
 
     <p class="card-text">Amount:- Rs {{request.amount}}</p>
       <p class="text-muted">{{request.material}}</p>
-        <p class="text-muted">{{request.from_contractor_pk}}</p>
 
       <br>
-    <a href="" class="btn btn-primary">See Portfolio</a>
+    <a href="{% url 'client:user_contractor_profile_view' pk=request.from_contractor_pk %}" class="btn btn-primary">See Portfolio</a>
   </div>
 </div>
      {% endifequal %}
